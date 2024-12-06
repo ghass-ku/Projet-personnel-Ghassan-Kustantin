@@ -6,7 +6,7 @@ print("Si toutes les cases du tableau sont occupées et il n'y a pas de gagnant,
 print("Bonne chance!")
 table = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-print("hello")
+
 #imprimer le tableau
 def imprimer_table(table):
     print(table[0] + "|" + table[1] + "|" + table[2])
