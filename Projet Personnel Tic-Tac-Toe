@@ -1,0 +1,121 @@
+print("Salut! Bievenue au jeu de Tic-Tac-Toe fait par Ghassan")
+print("Voici une explication du jeu si vous ne le connaissez pas déjà. Le but du jeu est d'obtenir")
+print("Une suite de 3 symboles sur 3 cases consécutives.")
+print("Vous n'avez pas le droit de mettre votre symbole sur une case où il y en a déja un.")
+print("Si toutes les cases du tableau sont occupées et il n'y a pas de gagnant, c'est une égalité.")
+print("Bonne chance!")
+table = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+print("hello")
+#imprimer le tableau
+def imprimer_table(table):
+    print(table[0] + "|" + table[1] + "|" + table[2])
+    print("-----")
+    print(table[3] + "|" + table[4] + "|" + table[5])
+    print("-----")
+    print(table[6] + "|" + table[7] + "|" + table[8])
+
+#demander position au joueur
+joueur = "X"
+def choix_joueur(table) :
+     while True :
+        try :
+            while True :
+                choixdujoueur = (int(input("Quelle est votre position? ")))-1
+                if 8 >= choixdujoueur >= 0 and table[choixdujoueur] != "X" and table[choixdujoueur] != "O":
+                    table[choixdujoueur] = joueur
+                    break
+                else :
+                    print("Position trop élevée ou position déjà occupée")
+        except ValueError :
+            print("Il faut entrer un chiffre")
+        else : break
+
+
+#verifier victoire
+gagnant = None
+def horizontale(table) :
+    global gagnant
+    if table[0] == table[1] == table[2] :
+        gagnant = table[0]
+        return True
+    elif table[3] == table[4] == table[5] :
+        gagnant = table[3]
+        return True
+    elif table[6] == table[7] == table[8] :
+        gagnant = table[6]
+        return True
+
+
+
+
+#verifier victoire
+def verticale(table) :
+    global gagnant
+    if table[0] == table[3] == table[6] :
+        gagnant = table[0]
+        return True
+    elif table[1] == table[4] == table[7] :
+        gagnant = table[1]
+        return True
+    elif table[2] == table[5] == table[8] :
+        gagnant = table[2]
+        return True
+
+
+
+#verifier victoire
+def diagonale(table) :
+    global gagnant
+    if table[0] == table[4] == table[8] :
+        gagnant = table[0]
+        return True
+    elif table[2] == table[4] == table[6] :
+        gagnant = table[2]
+        return True
+
+jeu_actif = True
+#verifier victoire
+def victoire() :
+    global jeu_actif
+    if horizontale(table) or verticale(table) or diagonale(table) :
+        print(f"Le gagnant est {gagnant} ")
+        jeu_actif = False
+        return True
+
+
+
+#verifier égalité
+def égalité(table) :
+    global jeu_actif
+    if "1" not in table and  "2" not in table and "3" not in table and "4" not in table and "5" not in table and "6" not in table and "7" not in table and "8" not in table and "9" not in table :
+        print("C'est une égalité")
+        jeu_actif = False
+        return True
+
+
+
+def changementdejoueur() :
+    global joueur
+    if joueur == "X" :
+        joueur = "O"
+    else :
+        joueur = "X"
+
+def lancerlejeu() :
+    while jeu_actif :
+        print("")
+        imprimer_table(table)
+        print("")
+        choix_joueur(table)
+        égalité(table)
+        print("")
+        changementdejoueur()
+        victoire()
+    if victoire() or égalité(table) :
+        imprimer_table(table)
+
+
+
+lancerlejeu()
+
