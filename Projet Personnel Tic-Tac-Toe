@@ -4,7 +4,11 @@ print("Une suite de 3 symboles sur 3 cases consécutives.")
 print("Vous n'avez pas le droit de mettre votre symbole sur une case où il y en a déja un.")
 print("Si toutes les cases du tableau sont occupées et il n'y a pas de gagnant, c'est une égalité.")
 print("Bonne chance!")
+print("")
+print("Si vous voulez jouer au jeu copiez ce code et collez le sur ce site : https://www.online-python.com/")
+
 table = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
 
 
 #imprimer le tableau
