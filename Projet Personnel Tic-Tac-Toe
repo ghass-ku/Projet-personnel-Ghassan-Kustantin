@@ -31,7 +31,7 @@ def choix_joueur(table) :
                     table[choixdujoueur] = joueur
                     break
                 else :
-                    print("Position trop élevée ou position déjà occupée")
+                    print("Position déjà occupée")
         except ValueError :
             print("Il faut entrer un chiffre")
         else : break
